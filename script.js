@@ -84,7 +84,7 @@ function combineAnswers(checkWrongPosition, checkRightPosition) {
     let WP = checkWrongPosition;
     let RP = checkRightPosition;
     if(RP == 4) {
-        return "You won";
+        return "------YOU WON------";
     } else {
         return [(WP-RP), RP]
     }
