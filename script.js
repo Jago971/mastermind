@@ -41,13 +41,18 @@ function submit() {
         return
     } else {
         let answers = combineAnswers(checkWrongPosition(answer, guess), checkRightPosition(answer, guess))
-
-        console.log(`ROUND: ${round}`)
-        console.log(`YOUR GUESS: ${guessesWithNames}`)
-        console.log(`Correct guesses:`)
-        console.log(`WRONG position: ${answers[0]}`)
-        console.log(`RIGHT position: ${answers[1]}`)
-        console.log("////////////////////////////////////////")
+        if(answers == "------YOU WON------") {
+            console.log(answers)
+            btn.removeEventListener("click", submit)
+        } else {
+            console.log(`ROUND: ${round}`)
+            console.log(`YOUR GUESS: ${guessesWithNames}`)
+            console.log(`Correct guesses:`)
+            console.log(`WRONG position: ${answers[0]}`)
+            console.log(`RIGHT position: ${answers[1]}`)
+            console.log("////////////////////////////////////////")
+        }
+    
     }
     round++;
     if(round == 11) {
@@ -104,3 +109,4 @@ console.log("-------------------------------------------------------")
 console.log("Get ALL 4 pins of the RIGHT color in the RIGHT position within 10 ROUNDs to win.")
 console.log("")
 console.log("")
+console.log(answer)
