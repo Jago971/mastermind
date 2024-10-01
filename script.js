@@ -51,7 +51,7 @@ function submit() {
     }
     round++;
     if(round == 11) {
-        console.log("You lost");
+        console.log("------YOU LOST------");
         btn.removeEventListener("click", submit)
     }
 }
