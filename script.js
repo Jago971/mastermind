@@ -24,15 +24,26 @@ function getGuess() {
     }
 }
 
+function numberColorSwap(number) {
+    let colours = {
+        1: 'Red',
+        2: 'Yellow',
+        3: 'Green',
+        4: 'Blue'
+    }
+    return colours[number]
+}
+
 function submit() {
     let guess = getGuess();
+    let guessesWithNames = guess.map(numberColorSwap)
     if(guess == undefined) {
         return
     } else {
         let answers = combineAnswers(checkWrongPosition(answer, guess), checkRightPosition(answer, guess))
 
         console.log(`ROUND: ${round}`)
-        console.log(`YOUR GUESS: ${guess}`)
+        console.log(`YOUR GUESS: ${guessesWithNames}`)
         console.log(`Correct guesses:`)
         console.log(`WRONG position: ${answers[0]}`)
         console.log(`RIGHT position: ${answers[1]}`)
