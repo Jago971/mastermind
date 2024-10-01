@@ -52,6 +52,7 @@ function submit() {
     round++;
     if(round == 11) {
         console.log("You lost");
+        btn.removeEventListener("click", submit)
     }
 }
 
@@ -89,9 +90,7 @@ function combineAnswers(checkWrongPosition, checkRightPosition) {
     }
 }
 
-btn.addEventListener("click", () => {
-    submit();
-})
+btn.addEventListener("click", submit)
 
 console.log("Welcome to MasterMind - console.log Edition")
 console.log("-------------------------------------------")
