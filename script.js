@@ -43,6 +43,13 @@ function submit() {
         let answers = combineAnswers(checkWrongPosition(answer, guess), checkRightPosition(answer, guess))
         if(answers == "------YOU WON------") {
             console.log(answers)
+            console.log(`Your guess was: ${guess}`)
+            console.log(`The answer was: ${answer}`)
+            btn.removeEventListener("click", submit)
+        } else if(round == 10) {
+            console.log("------YOU LOST------");
+            console.log(`Your guess was: ${guess}`)
+            console.log(`The answer was: ${answer}`)
             btn.removeEventListener("click", submit)
         } else {
             console.log(`ROUND: ${round}`)
@@ -52,13 +59,8 @@ function submit() {
             console.log(`RIGHT position: ${answers[1]}`)
             console.log("////////////////////////////////////////")
         }
-    
     }
     round++;
-    if(round == 11) {
-        console.log("------YOU LOST------");
-        btn.removeEventListener("click", submit)
-    }
 }
 
 function checkWrongPosition(answer, guess) {
